@@ -1,0 +1,44 @@
+﻿<Window x:Class="SistemaFacturacion.UI.Consultas.vFacturas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaFacturacion.UI.Consultas"
+        mc:Ignorable="d"
+        Title="Listado de facturas" Height="354" Width="636">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10, 5, 10, 0">
+            <StackPanel Orientation="Horizontal" Height="58">
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro: "/>
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="No Factura"/>
+                        
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <Label Content="Criterio: "/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+                </StackPanel>
+                <Button x:Name="BuscarButton" Height="35" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Buscar.png" Height="18"/>
+                        <Label Content="Buscar"/>
+
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left">
+                <DataGrid x:Name="DatosDataGrid" Height="240" Width="586" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="No factura" Binding="{Binding FacturaId}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
